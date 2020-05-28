@@ -1,6 +1,8 @@
 var fs = require("fs");
 var inquirer = require("inquirer");
 
+// .gitignore will ignore anything we want and it will pretend some things don't exist -- Currently node_modules is being ignored
+
 const questions = [
   {
     type: "input",

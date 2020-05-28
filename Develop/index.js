@@ -12,6 +12,26 @@ const questions = [
     message: "What is your user name?",
     name: "username",
   },
+  {
+    type: "input",
+    message: "What is the title that you want to name this project/repository?",
+    name: "title",
+  },
+  {
+    type: "input",
+    message: "Enter a description for this project.",
+    name: "description",
+  },
+  {
+    type: "input",
+    message: "Create a table of contents.",
+    name: "table-of-contents",
+  },
+  {
+    type: "input",
+    message: "What will this project be used for?",
+    name: "usage",
+  },
 ];
 
 // function writeToFile(fileName, data) {}

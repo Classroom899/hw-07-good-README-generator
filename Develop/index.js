@@ -1,5 +1,5 @@
 const fs = require("fs");
-const inquirer = require("inquirer");
+const inquirer = require("inquirer"); // All requires should be at the top of the page
 const axios = require("axios");
 
 // .gitignore will ignore anything we want and it will pretend some things don't exist -- Currently node_modules is being ignored
@@ -44,6 +44,7 @@ init();
 
 inquirer.prompt(questions).then(function (response) {
   console.log(response);
+  let filename = response.toLowerCase().split(" ").join("") + ".json"; // Name property decides what that key is going to be in that object of data // Our file is also going to end with .json
   fs.writeFile("README.md", [response.name], function (err) {
     // Try to make the README.md all capitals
     // process.argv is what we keep track of in the command line and what we type in the terminal

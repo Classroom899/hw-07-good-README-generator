@@ -4,6 +4,8 @@ var inquirer = require("inquirer");
 
 // .gitignore will ignore anything we want and it will pretend some things don't exist -- Currently node_modules is being ignored
 
+// We can add to our questions array for what we want to ask the user
+
 const questions = [
   {
     type: "input",
@@ -27,5 +29,6 @@ inquirer.prompt(questions).then(function (response) {
     if (err) {
       return console.log(err);
     }
+    console.log("README file has been created.");
   });
 });

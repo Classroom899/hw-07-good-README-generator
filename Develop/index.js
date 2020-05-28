@@ -36,6 +36,8 @@ const questions = [
 
 // function writeToFile(fileName, data) {}
 
+// Inquirer is asynchronous information
+
 function init() {}
 
 init();

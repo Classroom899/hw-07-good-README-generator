@@ -44,6 +44,7 @@ init();
 
 inquirer.prompt(questions).then(function (response) {
   console.log(response);
+  let { username, title, description, usage } = response;
   let filename = response.toLowerCase().split(" ").join("") + ".json"; // Name property decides what that key is going to be in that object of data // Our file is also going to end with .json
   fs.writeFile("README.md", [response.name], function (err) {
     // Try to make the README.md all capitals
@@ -55,3 +56,5 @@ inquirer.prompt(questions).then(function (response) {
     console.log("README file has been created.");
   });
 });
+
+axios.get; // Hit APIs with our backend

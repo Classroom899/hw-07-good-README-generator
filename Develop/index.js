@@ -49,10 +49,9 @@ inquirer.prompt(questions).then(function (response) {
   fs.writeFile("README.md", [response.name], function (err) {
     // Try to make the README.md all capitals
     // process.argv is what we keep track of in the command line and what we type in the terminal
-
-    if (err) {
-      return console.log(err); // I thought the .catch is the err?
-    }
+    axios.catch(function (err) {
+      console.log(err); // I thought the .catch is the err?
+    });
     console.log("README file has been created.");
   });
 });
@@ -63,3 +62,24 @@ inquirer.prompt(questions).then(function (response) {
 //   axios.get(queryUrl).then((response) =>  // Hit APIs with our backend
 
 // }
+
+// const appendFileAsync = util.promisify(fs.appendFile);
+// const readFileAsync = util.promisify(fs.readFile);
+
+// const config = { headers: { accept: "application/json" } };
+
+// axios
+//   .get("https://icanhazdadjoke.com/", config)
+//   .then(function (res) {
+//     const { joke } = res.data;
+
+//     appendFileAsync("jokes.txt", joke + "\n").then(function () {
+//       readFileAsync("jokes.txt", "utf8").then(function (data) {
+//         console.log("Saved dad jokes:");
+//         console.log(data);
+//       });
+//     });
+//   })
+//   .catch(function (err) {
+//     console.log(err);
+//   });

@@ -51,10 +51,15 @@ inquirer.prompt(questions).then(function (response) {
     // process.argv is what we keep track of in the command line and what we type in the terminal
 
     if (err) {
-      return console.log(err);
+      return console.log(err); // I thought the .catch is the err?
     }
     console.log("README file has been created.");
   });
 });
 
-axios.get; // Hit APIs with our backend
+// .then(function({ username }) {
+//   const queryURL = `https://api.giphy.com/v1/gifs/trending?api_key=EmNyH3yRXycry1y7373q9Rw9xYcvwJF7&limit=25&rating=G`;
+// return axios.get(queryUrl);
+//   axios.get(queryUrl).then((response) =>  // Hit APIs with our backend
+
+// }

@@ -1,6 +1,8 @@
 const fs = require("fs");
 const inquirer = require("inquirer"); // All requires should be at the top of the page
 const axios = require("axios");
+const generateMarkdown = require("./utils/generateMarkdown");
+const path = require("path");
 
 // .gitignore will ignore anything we want and it will pretend some things don't exist -- Currently node_modules is being ignored
 
@@ -34,7 +36,9 @@ const questions = [
   },
 ];
 
-// function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+  return fs.writeFileSync(path.join(process.cwd(), fileName), data);
+} // path.join
 
 // Inquirer is asynchronous information
 
@@ -42,18 +46,24 @@ function init() {}
 
 init();
 
-inquirer.prompt(questions).then(function (response) {
+inquirer.prompt(questions).then((response) => {
   console.log(response);
-  let { username, title, description, usage } = response;
-  let filename = response.toLowerCase().split(" ").join("") + ".json"; // Name property decides what that key is going to be in that object of data // Our file is also going to end with .json
-  fs.writeFile("README.md", [response.name], function (err) {
-    // Try to make the README.md all capitals
-    // process.argv is what we keep track of in the command line and what we type in the terminal
-    axios.catch(function (err) {
+  // let { username, title, description, usage } = response;
+  // let filename = response.toLowerCase().split(" ").join("") + ".json"; // Name property decides what that key is going to be in that object of data // Our file is also going to end with .json
+  axios
+    .get(`https://api.github.com/users/${response.username}`)
+    .then(({ data }) => {
+      writeToFile(
+        "README.md",
+        generateMarkdown({ ...response, ...data })
+        //api.github.com/users/%7Byourusername%7D
+        // Try to make the README.md all capitals
+        // process.argv is what we keep track of in the command line and what we type in the terminal
+      );
+    })
+    .catch(function (err) {
       console.log(err); // I thought the .catch is the err?
     });
-    console.log("README file has been created.");
-  });
 });
 
 // .then(function({ username }) {
@@ -69,7 +79,7 @@ inquirer.prompt(questions).then(function (response) {
 // const config = { headers: { accept: "application/json" } };
 
 // axios
-//   .get("https://icanhazdadjoke.com/", config)
+//   .get("https://icanhazdadjoke.com/", config) THIS IS A PROMISE
 //   .then(function (res) {
 //     const { joke } = res.data;
 
@@ -79,6 +89,27 @@ inquirer.prompt(questions).then(function (response) {
 //         console.log(data);
 //       });
 //     });
+//   })
+//   .catch(function (err) {
+//     console.log(err);
+//   });
+
+// New promise
+// function waitFor(seconds) {
+//   return new Promise(function (resolve, reject) {
+//     if (isNaN(seconds) || seconds < 1) {
+//       return reject(Error("Parameter 'seconds' must be a positive number!"));
+//     }
+
+//     setTimeout(function () {
+//       resolve("Success!");
+//     }, seconds * 1000);
+//   });
+// }
+
+// waitFor(2)
+//   .then(function (msg) {
+//     console.log(msg);
 //   })
 //   .catch(function (err) {
 //     console.log(err);

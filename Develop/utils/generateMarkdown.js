@@ -1,15 +1,26 @@
-function generateMarkdown({ title, description }) {
+function generateMarkdown({
+  title,
+  description,
+  username,
+  usage,
+  table,
+  installation,
+  license,
+  contributions,
+  tests,
+}) {
   // Require it in my index.html and then call it as well in one of my functions
   return `
+# ${username}
 # ${title}
 # ${description}
-
-
+# ${usage}
+# ${table}
+# ${installation}
+# ${license}
+# ${contributions}
+# ${tests}
 `;
-}
-
-function littleChallenge() {
-  console.log("Hello World");
 }
 
 module.exports = generateMarkdown; // Add the function by creating an object? Module.exports

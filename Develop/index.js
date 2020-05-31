@@ -4,7 +4,6 @@ const axios = require("axios");
 const generateMarkdown = require("./utils/generateMarkdown");
 const path = require("path");
 
-
 // .gitignore will ignore anything we want and it will pretend some things don't exist -- Currently node_modules is being ignored
 
 // We can add to our questions array for what we want to ask the user
@@ -28,12 +27,32 @@ const questions = [
   {
     type: "input",
     message: "Create a table of contents.",
-    name: "table-of-contents",
+    name: "table",
   },
   {
     type: "input",
     message: "What will this project be used for?",
     name: "usage",
+  },
+  {
+    type: "input",
+    message: "What installations will be needed?",
+    name: "installation",
+  },
+  {
+    type: "input",
+    message: "What licenses is required?",
+    name: "license",
+  },
+  {
+    type: "input",
+    message: "Any other contributions for this project that will be added?",
+    name: "contributions",
+  },
+  {
+    type: "input",
+    message: "Any tests?",
+    name: "tests",
   },
 ];
 
@@ -44,8 +63,6 @@ function writeToFile(fileName, data) {
 // Inquirer is asynchronous information
 
 function init() {}
-
-function littleChallenge()
 
 init();
 
@@ -77,45 +94,3 @@ inquirer.prompt(questions).then((response) => {
 //   axios.get(queryUrl).then((response) =>  // Hit APIs with our backend
 
 // }
-
-// const appendFileAsync = util.promisify(fs.appendFile);
-// const readFileAsync = util.promisify(fs.readFile);
-
-// const config = { headers: { accept: "application/json" } };
-
-// axios
-//   .get("https://icanhazdadjoke.com/", config) THIS IS A PROMISE
-//   .then(function (res) {
-//     const { joke } = res.data;
-
-//     appendFileAsync("jokes.txt", joke + "\n").then(function () {
-//       readFileAsync("jokes.txt", "utf8").then(function (data) {
-//         console.log("Saved dad jokes:");
-//         console.log(data);
-//       });
-//     });
-//   })
-//   .catch(function (err) {
-//     console.log(err);
-//   });
-
-// New promise
-// function waitFor(seconds) {
-//   return new Promise(function (resolve, reject) {
-//     if (isNaN(seconds) || seconds < 1) {
-//       return reject(Error("Parameter 'seconds' must be a positive number!"));
-//     }
-
-//     setTimeout(function () {
-//       resolve("Success!");
-//     }, seconds * 1000);
-//   });
-// }
-
-// waitFor(2)
-//   .then(function (msg) {
-//     console.log(msg);
-//   })
-//   .catch(function (err) {
-//     console.log(err);
-//   });

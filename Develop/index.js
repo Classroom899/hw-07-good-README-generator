@@ -94,3 +94,8 @@ inquirer.prompt(questions).then((response) => {
 //   axios.get(queryUrl).then((response) =>  // Hit APIs with our backend
 
 // }
+
+// Badge
+// ![AppVeyor](https://img.shields.io/appveyor/build/Classroom899/hw-07-good-README-generator)
+
+// [![Generic badge](https://img.shields.io/badge/

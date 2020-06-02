@@ -1,9 +1,10 @@
 
 # Classroom899
-# Title-here
-# description-here
-# project-here
-# table-here
-
-
-
+# Title
+# Description
+# Homework
+# Table
+# Needed
+# Licenses
+# N/A
+# 

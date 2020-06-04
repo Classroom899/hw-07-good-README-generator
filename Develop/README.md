@@ -19,3 +19,7 @@ This is an example.
 # contributions-here
 
 # tests-required
+
+## Link Example
+
+[Link](https://www.google.com)

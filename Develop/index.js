@@ -11,6 +11,11 @@ const path = require("path");
 const questions = [
   {
     type: "input",
+    message: "What is the header going to be for this project?",
+    name: "header",
+  },
+  {
+    type: "input",
     message: "What is your user name?",
     name: "username",
   },
@@ -99,3 +104,9 @@ inquirer.prompt(questions).then((response) => {
 // ![AppVeyor](https://img.shields.io/appveyor/build/Classroom899/hw-07-good-README-generator)
 
 // [![Generic badge](https://img.shields.io/badge/
+
+// Change licenses so that they are set to a default one
+
+// Answers should pop in as shield, description for markdown
+
+// Installation is set to npm i by default

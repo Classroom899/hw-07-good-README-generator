@@ -11,6 +11,7 @@ function generateMarkdown({
 }) {
   // Require it in my index.html and then call it as well in one of my functions
   return `
+# ${header}
 # ${username}
 # ${title}
 # ${description}
